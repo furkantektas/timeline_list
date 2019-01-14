@@ -29,7 +29,6 @@ List<TimelineModel> get timelineData => [
             ),
             color: Colors.blue,
           ),
-          icon: Icon(Icons.chat, color: Colors.white),
           iconBackground: Colors.redAccent,
           centerChild: false),
       TimelineModel(
@@ -39,7 +38,7 @@ List<TimelineModel> get timelineData => [
             ),
             color: Colors.yellow,
           ),
-          icon: Icon(Icons.add, color: Colors.white),
+          icon: Icon(Icons.add, color: Colors.yellow),
           iconBackground: Colors.purple,
           centerChild: false),
       TimelineModel(

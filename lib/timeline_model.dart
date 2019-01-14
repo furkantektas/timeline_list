@@ -8,8 +8,10 @@ class TimelineModel {
   final Widget child;
   final bool centerChild;
   final TimelineItemPosition position;
+  bool isFirst = false;
+  bool isLast = false;
 
-  const TimelineModel(this.child,
+  TimelineModel(this.child,
       {this.icon,
       this.iconBackground,
       this.centerChild = false,
@@ -24,15 +26,23 @@ class TimelineModel {
         iconBackground == typedOther.iconBackground &&
         child == typedOther.child &&
         centerChild == typedOther.centerChild &&
+        isFirst == typedOther.isFirst &&
+        isLast == typedOther.isLast &&
         position == typedOther.position;
   }
 
   @override
-  int get hashCode =>
-      hashValues(icon, iconBackground, child, centerChild, position);
+  int get hashCode => hashValues(
+      icon, iconBackground, child, centerChild, position, isFirst, isLast);
 
   TimelineModel copyWith(
-          {icon, iconBackground, child, centerChild, position}) =>
+          {icon,
+          iconBackground,
+          child,
+          centerChild,
+          position,
+          isFirst,
+          isLast}) =>
       TimelineModel(child ?? this.child,
           icon: icon ?? this.icon,
           iconBackground: iconBackground ?? this.iconBackground,
