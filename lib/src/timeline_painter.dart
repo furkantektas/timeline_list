@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeline/timeline.dart';
+import 'package:timeline_list/timeline.dart';
 
 class TimelineBoxDecoration extends Decoration {
   final Color iconBackground;

@@ -1,9 +1,9 @@
 library timeline;
 
 import 'package:flutter/material.dart';
-import 'package:timeline/src/timeline_item.dart';
-import 'package:timeline/src/timeline_painter.dart';
-import 'package:timeline/timeline_model.dart';
+import 'package:timeline_list/src/timeline_item.dart';
+import 'package:timeline_list/src/timeline_painter.dart';
+import 'package:timeline_list/timeline_model.dart';
 
 typedef IndexedTimelineModelBuilder = TimelineModel Function(
     BuildContext context, int index);

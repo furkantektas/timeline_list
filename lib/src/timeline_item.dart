@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:timeline/src/timeline_painter.dart';
-import 'package:timeline/timeline.dart';
-import 'package:timeline/timeline_model.dart';
+import 'package:timeline_list/src/timeline_painter.dart';
+import 'package:timeline_list/timeline.dart';
+import 'package:timeline_list/timeline_model.dart';
 
 abstract class TimelineItem extends StatelessWidget {
   final TimelineModel model;

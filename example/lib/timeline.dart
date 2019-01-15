@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:timeline/timeline.dart';
-import 'package:timeline/timeline_model.dart';
+import 'package:timeline_list/timeline.dart';
+import 'package:timeline_list/timeline_model.dart';
 import 'data.dart';
 
 class TimelinePage extends StatefulWidget {
@@ -58,28 +58,15 @@ class _TimelinePageState extends State<TimelinePage> {
       position: TimelinePosition.Left,
       itemBuilder: (context, i) => data[i]);
 
-  get centerTimeline => Container(
-          child: Timeline(
-        shrinkWrap: true,
-        children: <TimelineModel>[
-          TimelineModel(Container(
-            width: 200.0,
-            height: 200.0,
-            color: Colors.red,
-          ))
-        ],
-        position: TimelinePosition.Center,
-      ));
-//
-//  get centerTimeline => Timeline.builder(
-//      lineColor: Colors.grey[600],
-//      lineWidth: 4.0,
-//      itemCount: data.length,
-//      position: TimelinePosition.Center,
-//      itemBuilder: (context, i) => data[i].copyWith(
-//          position: i % 2 == 0
-//              ? TimelineItemPosition.left
-//              : TimelineItemPosition.right));
+  get centerTimeline => Timeline.builder(
+      lineColor: Colors.grey[600],
+      lineWidth: 4.0,
+      itemCount: data.length,
+      position: TimelinePosition.Center,
+      itemBuilder: (context, i) => data[i].copyWith(
+          position: i % 2 == 0
+              ? TimelineItemPosition.left
+              : TimelineItemPosition.right));
 
   get rightTimeline => Timeline.builder(
       lineColor: Colors.teal[600],

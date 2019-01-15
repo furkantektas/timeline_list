@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:timeline/timeline.dart';
-import 'package:timeline/timeline_model.dart';
+import 'package:timeline_list/timeline.dart';
+import 'package:timeline_list/timeline_model.dart';
 
 void main() {
   testWidgets('TimelineModel equality', (WidgetTester tester) async {

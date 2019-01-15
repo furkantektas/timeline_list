@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  timeline:
+  timeline_list:
     path: ../
 
 flutter:

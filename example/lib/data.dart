@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeline/timeline_model.dart';
+import 'package:timeline_list/timeline_model.dart';
 
 List<TimelineModel> get timelineData => [
       TimelineModel(
