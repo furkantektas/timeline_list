@@ -58,15 +58,28 @@ class _TimelinePageState extends State<TimelinePage> {
       position: TimelinePosition.Left,
       itemBuilder: (context, i) => data[i]);
 
-  get centerTimeline => Timeline.builder(
-      lineColor: Colors.grey[600],
-      lineWidth: 4.0,
-      itemCount: data.length,
-      position: TimelinePosition.Center,
-      itemBuilder: (context, i) => data[i].copyWith(
-          position: i % 2 == 0
-              ? TimelineItemPosition.left
-              : TimelineItemPosition.right));
+  get centerTimeline => Container(
+          child: Timeline(
+        shrinkWrap: true,
+        children: <TimelineModel>[
+          TimelineModel(Container(
+            width: 200.0,
+            height: 200.0,
+            color: Colors.red,
+          ))
+        ],
+        position: TimelinePosition.Center,
+      ));
+//
+//  get centerTimeline => Timeline.builder(
+//      lineColor: Colors.grey[600],
+//      lineWidth: 4.0,
+//      itemCount: data.length,
+//      position: TimelinePosition.Center,
+//      itemBuilder: (context, i) => data[i].copyWith(
+//          position: i % 2 == 0
+//              ? TimelineItemPosition.left
+//              : TimelineItemPosition.right));
 
   get rightTimeline => Timeline.builder(
       lineColor: Colors.teal[600],

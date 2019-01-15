@@ -31,6 +31,7 @@ abstract class TimelineItem extends StatelessWidget {
       textDirection: model.icon.textDirection,
       key: model.icon.key,
       semanticLabel: model.icon.semanticLabel,
+      size: TimelineBoxDecoration.DEFAULT_ICON_SIZE,
     );
   }
 }
@@ -76,7 +77,7 @@ class TimelineItemCenter extends TimelineItem {
                         minHeight:
                             iconSize + TimelineBoxDecoration.LINE_GAP * 2),
                     child: model.child),
-                Center(child: model.icon),
+                Center(child: icon),
               ],
             )));
   }

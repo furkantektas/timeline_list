@@ -10,8 +10,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.yellow,
           ),
           icon: Icon(Icons.alarm_on, color: Colors.white),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -20,8 +19,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.green,
           ),
           icon: Icon(Icons.camera, color: Colors.white),
-          iconBackground: Colors.blue,
-          centerChild: false),
+          iconBackground: Colors.blue),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -29,8 +27,7 @@ List<TimelineModel> get timelineData => [
             ),
             color: Colors.blue,
           ),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -39,8 +36,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.yellow,
           ),
           icon: Icon(Icons.add, color: Colors.yellow),
-          iconBackground: Colors.purple,
-          centerChild: false),
+          iconBackground: Colors.purple),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -49,8 +45,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.green,
           ),
           icon: Icon(Icons.camera, color: Colors.white),
-          iconBackground: Colors.blue,
-          centerChild: false),
+          iconBackground: Colors.blue),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -59,8 +54,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.blue,
           ),
           icon: Icon(Icons.chat, color: Colors.white),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -69,8 +63,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.yellow,
           ),
           icon: Icon(Icons.add, color: Colors.white),
-          iconBackground: Colors.purple,
-          centerChild: false),
+          iconBackground: Colors.purple),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -78,8 +71,7 @@ List<TimelineModel> get timelineData => [
             ),
             color: Colors.yellow,
           ),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -92,8 +84,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.white,
             size: 48.0,
           ),
-          iconBackground: Colors.blue,
-          centerChild: false),
+          iconBackground: Colors.blue),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -102,8 +93,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.blue,
           ),
           icon: Icon(Icons.chat, color: Colors.white),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -112,8 +102,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.pink,
           ),
           icon: Icon(Icons.add, color: Colors.white),
-          iconBackground: Colors.purple,
-          centerChild: false),
+          iconBackground: Colors.purple),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -122,8 +111,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.green,
           ),
           icon: Icon(Icons.camera, color: Colors.white),
-          iconBackground: Colors.blue,
-          centerChild: false),
+          iconBackground: Colors.blue),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -132,8 +120,7 @@ List<TimelineModel> get timelineData => [
             color: Colors.blue,
           ),
           icon: Icon(Icons.chat, color: Colors.white),
-          iconBackground: Colors.redAccent,
-          centerChild: false),
+          iconBackground: Colors.redAccent),
       TimelineModel(
           Container(
             child: Placeholder(
@@ -142,6 +129,5 @@ List<TimelineModel> get timelineData => [
             color: Colors.yellow,
           ),
           icon: Icon(Icons.add, color: Colors.white),
-          iconBackground: Colors.purple,
-          centerChild: false),
+          iconBackground: Colors.purple),
     ];

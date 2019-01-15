@@ -15,19 +15,35 @@ class TimelineProperties {
   final double lineWidth;
   final double iconSize;
 
-  const TimelineProperties(
-      {this.lineColor = const Color(0xFF333333),
-      this.lineWidth = 4.0,
-      iconSize})
-      : iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+  const TimelineProperties({Color lineColor, double lineWidth, double iconSize})
+      : lineColor = lineColor ?? const Color(0xFF333333),
+        lineWidth = lineWidth ?? 2.5,
+        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
 }
 
 class Timeline extends StatelessWidget {
-  final ScrollController controller = ScrollController();
+  final ScrollController controller;
   final IndexedTimelineModelBuilder itemBuilder;
   final int itemCount;
   final TimelinePosition position;
   final TimelineProperties properties;
+  final bool shrinkWrap;
+
+  /// Creates a scrollable timeline of widgets that are created befirehand.
+  /// Note: [TimelineModel.icon]'s size is ignored when `position` is not
+  /// [TimelinePosition.Center].
+  Timeline(
+      {List<TimelineModel> children,
+      Color lineColor,
+      double lineWidth,
+      double iconSize,
+      this.controller,
+      this.position = TimelinePosition.Center,
+      this.shrinkWrap = false})
+      : itemCount = children.length,
+        properties = TimelineProperties(
+            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize),
+        itemBuilder = ((BuildContext context, int i) => children[i]);
 
   /// Creates a scrollable timeline of widgets that are created on demand.
   /// Note: `itemBuilder` position and [TimelineModel.icon]'s size is ignored
@@ -35,16 +51,19 @@ class Timeline extends StatelessWidget {
   Timeline.builder(
       {@required this.itemBuilder,
       this.itemCount,
-      lineColor,
-      lineWidth,
-      iconSize,
-      this.position = TimelinePosition.Center})
+      this.controller,
+      Color lineColor,
+      double lineWidth,
+      double iconSize,
+      this.position = TimelinePosition.Center,
+      this.shrinkWrap = false})
       : properties = TimelineProperties(
             lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        shrinkWrap: shrinkWrap,
         itemCount: itemCount,
         controller: controller,
         itemBuilder: (context, i) {

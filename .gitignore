@@ -18,3 +18,8 @@ example/android/app/.project
 example/android/app/.settings/org.eclipse.buildship.core.prefs
 example/android/gradle/wrapper/gradle-wrapper.jar
 example/ios/Podfile.lock
+/coverage/
+*.log
+*.iml
+.atom
+.flutter-plugins
