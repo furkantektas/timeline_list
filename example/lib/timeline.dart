@@ -12,14 +12,17 @@ class TimelinePage extends StatefulWidget {
 }
 
 class _TimelinePageState extends State<TimelinePage> {
-  final data = timelineData;
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
   int pageIx = 1;
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = [leftTimeline, centerTimeline, rightTimeline];
+    List<Widget> pages = [
+      timelineModel(TimelinePosition.Left),
+      timelineModel(TimelinePosition.Center),
+      timelineModel(TimelinePosition.Right)
+    ];
 
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
@@ -51,27 +54,50 @@ class _TimelinePageState extends State<TimelinePage> {
         ));
   }
 
-  get leftTimeline => Timeline.builder(
-      lineColor: Colors.deepPurpleAccent,
-      lineWidth: 4.0,
-      itemCount: data.length,
-      position: TimelinePosition.Left,
-      itemBuilder: (context, i) => data[i]);
+  timelineModel(TimelinePosition position) => Timeline.builder(
+      itemBuilder: centerTimelineBuilder,
+      itemCount: doodles.length,
+      position: position);
 
-  get centerTimeline => Timeline.builder(
-      lineColor: Colors.grey[600],
-      lineWidth: 4.0,
-      itemCount: data.length,
-      position: TimelinePosition.Center,
-      itemBuilder: (context, i) => data[i].copyWith(
-          position: i % 2 == 0
-              ? TimelineItemPosition.left
-              : TimelineItemPosition.right));
-
-  get rightTimeline => Timeline.builder(
-      lineColor: Colors.teal[600],
-      lineWidth: 4.0,
-      itemCount: data.length,
-      position: TimelinePosition.Right,
-      itemBuilder: (context, i) => data[i]);
+  TimelineModel centerTimelineBuilder(BuildContext context, int i) {
+    final doodle = doodles[i];
+    final textTheme = Theme.of(context).textTheme;
+    return TimelineModel(
+        Card(
+          margin: EdgeInsets.symmetric(vertical: 16.0),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Image.network(doodle.doodle),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                Text(doodle.time, style: textTheme.caption),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                Text(
+                  doodle.name,
+                  style: textTheme.title,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 8.0,
+                ),
+              ],
+            ),
+          ),
+        ),
+        position:
+            i % 2 == 0 ? TimelineItemPosition.right : TimelineItemPosition.left,
+        isFirst: i == 0,
+        isLast: i == doodles.length,
+        iconBackground: doodle.iconBackground,
+        icon: doodle.icon);
+  }
 }
