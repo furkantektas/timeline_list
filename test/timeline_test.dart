@@ -6,7 +6,8 @@ import 'package:timeline_list/timeline.dart';
 import 'package:timeline_list/timeline_model.dart';
 
 void main() {
-  testWidgets('TimelineModel equality', (WidgetTester tester) async {
+  testWidgets('TimelineModel equality and hashCode',
+      (WidgetTester tester) async {
     final child = Container();
     final icon = Icon(Icons.add);
     final icon2 = Icon(Icons.remove);
@@ -32,7 +33,9 @@ void main() {
         iconBackground: Colors.yellow);
 
     expect(model1 == model2, true);
+    expect(model1.hashCode == model2.hashCode, true);
     expect(model1 == model3, false);
+    expect(model1.hashCode == model3.hashCode, false);
     expect(model1 == model4, false);
     expect(model1 == model5, false);
 
@@ -151,6 +154,23 @@ void main() {
         )));
 
     expect(find.byIcon(Icons.add), findsOneWidget);
+  });
+
+  testWidgets('Reverse List', (WidgetTester tester) async {
+    await tester.pumpWidget(Directionality(
+        textDirection: TextDirection.ltr,
+        child: Timeline.builder(
+            reverse: true,
+            itemCount: 1,
+            itemBuilder: (context, i) => TimelineModel(Container(),
+                icon: Icon(
+                  Icons.add,
+                  color: i == 0 ? Colors.blue : Colors.green,
+                )))));
+
+    final finder = find.byIcon(Icons.add);
+    expect(finder, findsOneWidget);
+    expect(tester.widget<Icon>(finder).color, Colors.blue);
   });
 
   testWidgets('No icon timeline', (WidgetTester tester) async {

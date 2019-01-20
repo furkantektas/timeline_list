@@ -1,5 +1,4 @@
-# Flutter Timeline Widget <a href="https://ehlibyte.com"><img align="right" width="100" height="100" src="http://ehlibyte.com/images/ehlibyte-logo.svg?raw=true" /></a>
-
+# Flutter Timeline Widget
 [![pub package](https://img.shields.io/pub/v/timeline_list.svg)](https://pub.dartlang.org/packages/timeline_list)
 [![Build Status](https://travis-ci.org/furkantektas/timeline_list.svg?branch=master)](https://travis-ci.org/furkantektas/timeline_list)  [![codecov](https://codecov.io/gh/furkantektas/timeline_list/branch/master/graph/badge.svg?token=jDCYhfSuea)](https://codecov.io/gh/furkantektas/timeline_list)
 
@@ -10,11 +9,11 @@ Displays a scrollable timeline with custom child widgets and custom icons.
 
 ## Installation
 
-In your `pubspec.yaml` file within your Flutter Project: 
+In your `pubspec.yaml` file within your Flutter Project:
 
 ```yaml
 dependencies:
-  timeline_list: ^0.0.1
+  timeline_list: ^0.0.3
 ```
 
 ## Features
@@ -41,8 +40,10 @@ List<TimelineModel> items = [
     ];
     return Timeline(children: items, position: TimelinePosition.Center);
 ```
-      
+
 ## Example
 
 A sample timeline app can be found in the [`example/`](https://github.com/furkantektas/timeline_list/tree/master/example) folder.
-      
+
+
+![ehlibyte games](http://ehlibyte.com/images/ehlibyte-logo-small.png?raw=true)
