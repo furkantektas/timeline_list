@@ -27,6 +27,7 @@ class Timeline extends StatelessWidget {
   final int itemCount;
   final TimelinePosition position;
   final TimelineProperties properties;
+  final ScrollPhysics physics;
   final bool shrinkWrap;
   final bool reverse;
 
@@ -40,6 +41,7 @@ class Timeline extends StatelessWidget {
       double iconSize,
       this.controller,
       this.position = TimelinePosition.Center,
+      this.physics,
       this.shrinkWrap = false,
       this.reverse = false})
       : itemCount = children.length,
@@ -58,6 +60,7 @@ class Timeline extends StatelessWidget {
       double lineWidth,
       double iconSize,
       this.position = TimelinePosition.Center,
+      this.physics,
       this.shrinkWrap = false,
       this.reverse = false})
       : properties = TimelineProperties(
@@ -66,6 +69,7 @@ class Timeline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        physics: physics,
         shrinkWrap: shrinkWrap,
         itemCount: itemCount,
         controller: controller,
