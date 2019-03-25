@@ -57,6 +57,9 @@ class _TimelinePageState extends State<TimelinePage> {
   timelineModel(TimelinePosition position) => Timeline.builder(
       itemBuilder: centerTimelineBuilder,
       itemCount: doodles.length,
+      physics: position == TimelinePosition.Left
+          ? ClampingScrollPhysics()
+          : BouncingScrollPhysics(),
       position: position);
 
   TimelineModel centerTimelineBuilder(BuildContext context, int i) {
