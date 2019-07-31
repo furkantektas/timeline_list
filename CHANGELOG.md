@@ -6,3 +6,5 @@
 ## [0.0.3] - Reverse option added
 
 ## [0.0.4] - ScrollPhysics added for custom scroll behaviors (thanks @JJCLane)
+
+## [0.0.5] - `primary` option added. (Thanks @mjhansen3)
