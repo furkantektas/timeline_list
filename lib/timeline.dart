@@ -29,6 +29,7 @@ class Timeline extends StatelessWidget {
   final TimelineProperties properties;
   final ScrollPhysics physics;
   final bool shrinkWrap;
+  final bool primary;
   final bool reverse;
 
   /// Creates a scrollable timeline of widgets that are created befirehand.
@@ -36,14 +37,15 @@ class Timeline extends StatelessWidget {
   /// [TimelinePosition.Center].
   Timeline(
       {List<TimelineModel> children,
-      Color lineColor,
-      double lineWidth,
-      double iconSize,
-      this.controller,
-      this.position = TimelinePosition.Center,
-      this.physics,
-      this.shrinkWrap = false,
-      this.reverse = false})
+        Color lineColor,
+        double lineWidth,
+        double iconSize,
+        this.controller,
+        this.position = TimelinePosition.Center,
+        this.physics,
+        this.shrinkWrap = false,
+        this.primary = false,
+        this.reverse = false})
       : itemCount = children.length,
         properties = TimelineProperties(
             lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize),
@@ -54,17 +56,18 @@ class Timeline extends StatelessWidget {
   /// when `position` is not [TimelinePosition.Center].
   Timeline.builder(
       {@required this.itemBuilder,
-      this.itemCount,
-      this.controller,
-      Color lineColor,
-      double lineWidth,
-      double iconSize,
-      this.position = TimelinePosition.Center,
-      this.physics,
-      this.shrinkWrap = false,
-      this.reverse = false})
+        this.itemCount,
+        this.controller,
+        Color lineColor,
+        double lineWidth,
+        double iconSize,
+        this.position = TimelinePosition.Center,
+        this.physics,
+        this.shrinkWrap = false,
+        this.primary = false,
+        this.reverse = false})
       : properties = TimelineProperties(
-            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize);
+      lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize);
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +77,7 @@ class Timeline extends StatelessWidget {
         itemCount: itemCount,
         controller: controller,
         reverse: reverse,
+        primary: primary,
         itemBuilder: (context, i) {
           final TimelineModel model = itemBuilder(context, i);
           model.isFirst = reverse ? i == (itemCount - 1) : i == 0;
