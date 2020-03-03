@@ -97,18 +97,21 @@ class TimelineItemLeft extends TimelineItem {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
-              decoration: TimelineBoxDecoration(
-                  isFirst: model.isFirst,
-                  isLast: model.isLast,
-                  iconSize: model.icon != null
-                      ? properties.iconSize
-                      : TimelineBoxDecoration.DEFAULT_DOT_SIZE,
-                  iconBackground: model.iconBackground,
-                  properties: properties,
-                  timelinePosition: TimelinePosition.Left),
-              width: properties.iconSize * 2,
-              alignment: Alignment.center,
-              child: icon),
+            //color: Colors.pink,
+            decoration: TimelineBoxDecoration(
+              isFirst: model.isFirst,
+              isLast: model.isLast,
+              iconSize: model.icon != null
+                  ? properties.iconSize
+                  : TimelineBoxDecoration.DEFAULT_DOT_SIZE,
+              iconBackground: model.iconBackground,
+              properties: properties,
+              timelinePosition: TimelinePosition.Left,
+            ),
+            width: properties.iconSize + 24,
+            alignment: Alignment.center,
+            child: icon,
+          ),
           Container(
               padding:
                   const EdgeInsets.only(left: TimelineBoxDecoration.LINE_GAP),
@@ -152,7 +155,7 @@ class TimelineItemRight extends TimelineItem {
                   iconBackground: model.iconBackground,
                   properties: properties,
                   timelinePosition: TimelinePosition.Right),
-              width: properties.iconSize * 2,
+              width: properties.iconSize + 24,
               alignment: Alignment.center,
               child: icon),
         ],
