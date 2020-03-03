@@ -91,37 +91,37 @@ class TimelineItemLeft extends TimelineItem {
   Widget build(BuildContext context) {
     final margin = properties.iconSize + TimelineBoxDecoration.LINE_GAP * 2;
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            //color: Colors.pink,
-            decoration: TimelineBoxDecoration(
-              isFirst: model.isFirst,
-              isLast: model.isLast,
-              iconSize: model.icon != null
-                  ? properties.iconSize
-                  : TimelineBoxDecoration.DEFAULT_DOT_SIZE,
-              iconBackground: model.iconBackground,
-              properties: properties,
-              timelinePosition: TimelinePosition.Left,
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              decoration: TimelineBoxDecoration(
+                isFirst: model.isFirst,
+                isLast: model.isLast,
+                iconSize: model.icon != null
+                    ? properties.iconSize
+                    : TimelineBoxDecoration.DEFAULT_DOT_SIZE,
+                iconBackground: model.iconBackground,
+                properties: properties,
+                timelinePosition: TimelinePosition.Left,
+              ),
+              width: properties.iconSize + 24,
+              alignment: Alignment.center,
+              child: icon,
             ),
-            width: properties.iconSize + 24,
-            alignment: Alignment.center,
-            child: icon,
-          ),
-          Container(
-              padding:
-                  const EdgeInsets.only(left: TimelineBoxDecoration.LINE_GAP),
-              constraints: BoxConstraints(
-                  minHeight: margin,
-                  maxWidth: constraints.maxWidth - margin * 2.0),
-              child: model.child),
-        ],
-      );
-    });
+            Container(
+                padding: const EdgeInsets.only(
+                    left: TimelineBoxDecoration.LINE_GAP),
+                constraints: BoxConstraints(
+                    minHeight: margin,
+                    maxWidth: constraints.maxWidth - margin * 2.0),
+                child: model.child),
+          ],
+        );
+      },
+    );
   }
 }
 
