@@ -9,13 +9,15 @@ class TimelineModel {
   final TimelineItemPosition position;
   bool isFirst;
   bool isLast;
+  final Function onTap;
 
   TimelineModel(this.child,
       {this.icon,
         this.iconBackground,
         this.position = TimelineItemPosition.random,
         this.isFirst = false,
-        this.isLast = false});
+        this.isLast = false,
+        this.onTap});
 
   @override
   bool operator ==(o) {

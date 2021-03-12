@@ -116,8 +116,7 @@ class _TimelinePainterLeft extends _TimelinePainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    final double iconBackgroundRadius =
-        iconSize / 2 + TimelineBoxDecoration.LINE_GAP;
+    final double iconBackgroundRadius = iconSize / 2 + TimelineBoxDecoration.LINE_GAP;
 
     double iconMargin;
     if (iconSize == TimelineBoxDecoration.DEFAULT_DOT_SIZE)
