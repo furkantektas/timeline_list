@@ -197,7 +197,7 @@ void main() {
     final RenderStack actualPositionedBoxLeft =
         tester.renderObject(find.byType(Stack).first);
 
-    Alignment actualAlignmentLeft = actualPositionedBoxLeft.alignment;
+    Alignment actualAlignmentLeft = actualPositionedBoxLeft.alignment as Alignment;
     expect(actualAlignmentLeft, Alignment.centerLeft);
 
     await tester.pumpWidget(Directionality(
@@ -213,7 +213,7 @@ void main() {
     final RenderStack actualPositionedBoxRight =
         tester.renderObject(find.byType(Stack).first);
 
-    Alignment actualAlignmentRight = actualPositionedBoxRight.alignment;
+    Alignment actualAlignmentRight = actualPositionedBoxRight.alignment as Alignment;
     expect(actualAlignmentRight, Alignment.centerRight);
   });
 
@@ -264,7 +264,7 @@ void main() {
 
     var finderLeft = find.byType(Row);
     expect(finderLeft, findsOneWidget);
-    final Row row = finderLeft.evaluate().first.widget;
+    final Row row = finderLeft.evaluate().first.widget as Row;
 
     expect(row.mainAxisAlignment, MainAxisAlignment.start);
 
@@ -279,7 +279,7 @@ void main() {
 
     final finderRight = find.byType(Row);
     expect(finderRight, findsOneWidget);
-    final Row rowEnd = finderRight.evaluate().first.widget;
+    final Row rowEnd = finderRight.evaluate().first.widget as Row;
 
     expect(rowEnd.mainAxisAlignment, MainAxisAlignment.end);
   });
@@ -305,10 +305,10 @@ void main() {
     final RenderStack actualPositionedBoxLeft =
         tester.renderObject(find.byType(Stack));
 
-    Alignment actualAlignmentLeft = actualPositionedBoxLeft.alignment;
+    Alignment actualAlignmentLeft = actualPositionedBoxLeft.alignment as Alignment;
     expect(actualAlignmentLeft, Alignment.centerLeft);
 
-    final Icon icon = find.byIcon(Icons.add).evaluate().first.widget;
+    final Icon icon = find.byIcon(Icons.add).evaluate().first.widget as Icon;
     expect(icon.size, ICON_SIZE);
   });
 

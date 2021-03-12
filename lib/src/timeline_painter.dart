@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:timeline_list/timeline.dart';
 
 class TimelineBoxDecoration extends Decoration {
-  final Color iconBackground;
-  final TimelineProperties properties;
-  final double iconSize;
-  final bool isFirst;
-  final bool isLast;
-  final TimelinePosition timelinePosition;
+  final Color? iconBackground;
+  final TimelineProperties? properties;
+  final double? iconSize;
+  final bool? isFirst;
+  final bool? isLast;
+  final TimelinePosition? timelinePosition;
 
   static const double DEFAULT_DOT_SIZE = 12.0;
   static const double DEFAULT_ICON_SIZE = 24.0; // default icon size
@@ -22,7 +22,7 @@ class TimelineBoxDecoration extends Decoration {
       this.timelinePosition});
 
   @override
-  BoxPainter createBoxPainter([VoidCallback onChanged]) {
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     switch (timelinePosition) {
       case TimelinePosition.Left:
         return _TimelinePainterLeft(
@@ -53,15 +53,15 @@ class TimelineBoxDecoration extends Decoration {
 abstract class _TimelinePainter extends BoxPainter {
   final Paint linePaint;
   final Paint circlePaint;
-  final double iconSize;
-  final bool isFirst;
-  final bool isLast;
-  final TimelinePosition timelinePosition;
+  final double? iconSize;
+  final bool? isFirst;
+  final bool? isLast;
+  final TimelinePosition? timelinePosition;
   final TimelineProperties properties;
 
   _TimelinePainter(
       {this.iconSize,
-      this.properties,
+      required this.properties,
       this.isFirst = false,
       this.isLast = false,
       this.timelinePosition,
@@ -78,7 +78,7 @@ abstract class _TimelinePainter extends BoxPainter {
 
 class _TimelinePainterCenter extends _TimelinePainter {
   _TimelinePainterCenter(
-      {iconSize, properties, isFirst, isLast, iconBackground})
+      {iconSize, required properties, isFirst, isLast, iconBackground})
       : super(
             iconSize: iconSize,
             properties: properties,
@@ -88,25 +88,25 @@ class _TimelinePainterCenter extends _TimelinePainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    final Offset offsetTop = configuration.size.topCenter(Offset(0.0, 0.0));
-    final Offset topLineEnd = configuration.size.center(Offset(
-        0.0, offset.dy - iconSize / 2 - 2 * TimelineBoxDecoration.LINE_GAP));
-    final Offset bottomLineStart = configuration.size.center(Offset(
-        0.0, offset.dy + iconSize / 2 + 2 * TimelineBoxDecoration.LINE_GAP));
+    final Offset offsetTop = configuration.size!.topCenter(Offset(0.0, 0.0));
+    final Offset topLineEnd = configuration.size!.center(Offset(
+        0.0, offset.dy - iconSize! / 2 - 2 * TimelineBoxDecoration.LINE_GAP));
+    final Offset bottomLineStart = configuration.size!.center(Offset(
+        0.0, offset.dy + iconSize! / 2 + 2 * TimelineBoxDecoration.LINE_GAP));
     final Offset offsetBottom =
-        configuration.size.bottomCenter(Offset(0.0, offset.dy * 2));
-    if (!isFirst) canvas.drawLine(offsetTop, topLineEnd, linePaint);
-    if (!isLast) canvas.drawLine(bottomLineStart, offsetBottom, linePaint);
+        configuration.size!.bottomCenter(Offset(0.0, offset.dy * 2));
+    if (!isFirst!) canvas.drawLine(offsetTop, topLineEnd, linePaint);
+    if (!isLast!) canvas.drawLine(bottomLineStart, offsetBottom, linePaint);
 
     final Offset offsetCenter =
-        configuration.size.center(Offset(0.0, offset.dy));
+        configuration.size!.center(Offset(0.0, offset.dy));
     canvas.drawCircle(offsetCenter,
-        iconSize / 2 + TimelineBoxDecoration.LINE_GAP, circlePaint);
+        iconSize! / 2 + TimelineBoxDecoration.LINE_GAP, circlePaint);
   }
 }
 
 class _TimelinePainterLeft extends _TimelinePainter {
-  _TimelinePainterLeft({iconSize, properties, isFirst, isLast, iconBackground})
+  _TimelinePainterLeft({iconSize, required properties, isFirst, isLast, iconBackground})
       : super(
             iconSize: iconSize,
             properties: properties,
@@ -117,7 +117,7 @@ class _TimelinePainterLeft extends _TimelinePainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final double iconBackgroundRadius =
-        iconSize / 2 + TimelineBoxDecoration.LINE_GAP;
+        iconSize! / 2 + TimelineBoxDecoration.LINE_GAP;
 
     double iconMargin;
     if (iconSize == TimelineBoxDecoration.DEFAULT_DOT_SIZE)
@@ -127,23 +127,23 @@ class _TimelinePainterLeft extends _TimelinePainter {
       iconMargin = iconBackgroundRadius + TimelineBoxDecoration.LINE_GAP;
 
     final leftOffset = Offset(iconMargin, offset.dy);
-    final Offset top = configuration.size.topLeft(Offset(leftOffset.dx, 0.0));
-    final Offset centerTop = configuration.size
+    final Offset top = configuration.size!.topLeft(Offset(leftOffset.dx, 0.0));
+    final Offset centerTop = configuration.size!
         .centerLeft(Offset(leftOffset.dx, leftOffset.dy - iconMargin));
-    final Offset centerBottom = configuration.size
+    final Offset centerBottom = configuration.size!
         .centerLeft(Offset(leftOffset.dx, leftOffset.dy + iconMargin));
     final Offset end =
-        configuration.size.bottomLeft(Offset(leftOffset.dx, leftOffset.dy * 2));
-    if (!isFirst) canvas.drawLine(top, centerTop, linePaint);
-    if (!isLast) canvas.drawLine(centerBottom, end, linePaint);
+        configuration.size!.bottomLeft(Offset(leftOffset.dx, leftOffset.dy * 2));
+    if (!isFirst!) canvas.drawLine(top, centerTop, linePaint);
+    if (!isLast!) canvas.drawLine(centerBottom, end, linePaint);
 
-    final Offset offsetCenter = configuration.size.centerLeft(leftOffset);
+    final Offset offsetCenter = configuration.size!.centerLeft(leftOffset);
     canvas.drawCircle(offsetCenter, iconBackgroundRadius, circlePaint);
   }
 }
 
 class _TimelinePainterRight extends _TimelinePainter {
-  _TimelinePainterRight({iconSize, properties, isFirst, isLast, iconBackground})
+  _TimelinePainterRight({iconSize, required properties, isFirst, isLast, iconBackground})
       : super(
             iconSize: iconSize,
             properties: properties,
@@ -154,7 +154,7 @@ class _TimelinePainterRight extends _TimelinePainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final double iconBackgroundRadius =
-        iconSize / 2 + TimelineBoxDecoration.LINE_GAP;
+        iconSize! / 2 + TimelineBoxDecoration.LINE_GAP;
 
     double iconMargin;
     if (iconSize == TimelineBoxDecoration.DEFAULT_DOT_SIZE)
@@ -164,17 +164,17 @@ class _TimelinePainterRight extends _TimelinePainter {
       iconMargin = iconBackgroundRadius + TimelineBoxDecoration.LINE_GAP;
 
     final rightOffset = Offset(offset.dx - iconMargin, offset.dy);
-    final Offset top = configuration.size.topRight(Offset(rightOffset.dx, 0.0));
-    final Offset centerTop = configuration.size
+    final Offset top = configuration.size!.topRight(Offset(rightOffset.dx, 0.0));
+    final Offset centerTop = configuration.size!
         .centerRight(Offset(rightOffset.dx, rightOffset.dy - iconMargin));
-    final Offset centerBottom = configuration.size
+    final Offset centerBottom = configuration.size!
         .centerRight(Offset(rightOffset.dx, rightOffset.dy + iconMargin));
-    final Offset end = configuration.size
+    final Offset end = configuration.size!
         .bottomRight(Offset(rightOffset.dx, rightOffset.dy * 2));
-    if (!isFirst) canvas.drawLine(top, centerTop, linePaint);
-    if (!isLast) canvas.drawLine(centerBottom, end, linePaint);
+    if (!isFirst!) canvas.drawLine(top, centerTop, linePaint);
+    if (!isLast!) canvas.drawLine(centerBottom, end, linePaint);
 
-    final Offset offsetCenter = configuration.size.centerRight(rightOffset);
+    final Offset offsetCenter = configuration.size!.centerRight(rightOffset);
     canvas.drawCircle(offsetCenter, iconBackgroundRadius, circlePaint);
   }
 }
