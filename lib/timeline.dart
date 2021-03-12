@@ -5,7 +5,7 @@ import 'package:timeline_list/src/timeline_item.dart';
 import 'package:timeline_list/src/timeline_painter.dart';
 import 'package:timeline_list/timeline_model.dart';
 
-typedef IndexedTimelineModelBuilder = TimelineModel Function(
+typedef IndexedTimelineModelBuilder = TimelineModel? Function(
     BuildContext context, int index);
 
 enum TimelinePosition { Left, Center, Right }
@@ -15,19 +15,19 @@ class TimelineProperties {
   final double lineWidth;
   final double iconSize;
 
-  const TimelineProperties({Color lineColor, double lineWidth, double iconSize})
+  const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize})
       : lineColor = lineColor ?? const Color(0xFF333333),
         lineWidth = lineWidth ?? 2.5,
         iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
 }
 
 class Timeline extends StatelessWidget {
-  final ScrollController controller;
+  final ScrollController? controller;
   final IndexedTimelineModelBuilder itemBuilder;
-  final int itemCount;
+  final int? itemCount;
   final TimelinePosition position;
   final TimelineProperties properties;
-  final ScrollPhysics physics;
+  final ScrollPhysics? physics;
   final bool shrinkWrap;
   final bool primary;
   final bool reverse;
@@ -36,10 +36,10 @@ class Timeline extends StatelessWidget {
   /// Note: [TimelineModel.icon]'s size is ignored when `position` is not
   /// [TimelinePosition.Center].
   Timeline(
-      {List<TimelineModel> children,
-        Color lineColor,
-        double lineWidth,
-        double iconSize,
+      {required List<TimelineModel> children,
+        Color? lineColor,
+        double? lineWidth,
+        double? iconSize,
         this.controller,
         this.position = TimelinePosition.Center,
         this.physics,
@@ -55,12 +55,12 @@ class Timeline extends StatelessWidget {
   /// Note: `itemBuilder` position and [TimelineModel.icon]'s size is ignored
   /// when `position` is not [TimelinePosition.Center].
   Timeline.builder(
-      {@required this.itemBuilder,
+      {required this.itemBuilder,
         this.itemCount,
         this.controller,
-        Color lineColor,
-        double lineWidth,
-        double iconSize,
+        Color? lineColor,
+        double? lineWidth,
+        double? iconSize,
         this.position = TimelinePosition.Center,
         this.physics,
         this.shrinkWrap = false,
@@ -79,9 +79,9 @@ class Timeline extends StatelessWidget {
         reverse: reverse,
         primary: primary,
         itemBuilder: (context, i) {
-          final TimelineModel model = itemBuilder(context, i);
-          model.isFirst = reverse ? i == (itemCount - 1) : i == 0;
-          model.isLast = reverse ? i == 0 : i == (itemCount - 1);
+          final TimelineModel model = itemBuilder(context, i)!;
+          model.isFirst = reverse ? i == (itemCount! - 1) : i == 0;
+          model.isLast = reverse ? i == 0 : i == (itemCount! - 1);
           switch (position) {
             case TimelinePosition.Left:
               return TimelineItemLeft(properties: properties, model: model);

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 enum TimelineItemPosition { left, right, random }
 
 class TimelineModel {
-  final Icon icon;
-  final Color iconBackground;
+  final Icon? icon;
+  final Color? iconBackground;
   final Widget child;
   final TimelineItemPosition position;
   bool isFirst;

@@ -13,7 +13,7 @@ In your `pubspec.yaml` file within your Flutter Project:
 
 ```yaml
 dependencies:
-  timeline_list: ^0.0.3
+  timeline_list: ^0.0.5
 ```
 
 ## Features
