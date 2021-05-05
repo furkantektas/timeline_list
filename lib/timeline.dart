@@ -85,9 +85,11 @@ class Timeline extends StatelessWidget {
 
           final child = positionBuilder[position];
 
-          return InkWell(
-            onTap: model.onTap,
-            child: child(properties, model),
+          return Material(
+            child: InkWell(
+              onTap: model.onTap,
+              child: child(properties, model),
+            ),
           );
         });
   }
