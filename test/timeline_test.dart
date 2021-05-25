@@ -100,6 +100,15 @@ void main() {
     expect(find.byType(Timeline), findsOneWidget);
   });
 
+  testWidgets('Empty timeline builder', (WidgetTester tester) async {
+    await tester.pumpWidget(Directionality(
+      textDirection: TextDirection.ltr,
+      child: Timeline.builder(itemBuilder: (context, i) => TimelineModel(Container()), itemCount: 0),
+    ));
+
+    expect(find.byType(Timeline), findsOneWidget);
+  });
+
   final key = UniqueKey();
   testWidgets('Single item size', (WidgetTester tester) async {
     await tester.pumpWidget(Directionality(
