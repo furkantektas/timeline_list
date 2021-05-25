@@ -9,28 +9,27 @@ abstract class TimelineItem extends StatelessWidget {
   final TimelineModel model;
   final TimelineProperties properties;
 
-  const TimelineItem({Key key, this.model, this.properties}) : super(key: key);
+  const TimelineItem({Key? key, required this.model, required this.properties}) : super(key: key);
 
   double get iconSize {
     // if no icon is specified, use smaller dot size
     if (model.icon == null) return TimelineBoxDecoration.DEFAULT_DOT_SIZE;
     // use [TimelineModel.icon]'s size when timeline is centered
     if (this is TimelineItemCenter)
-      return model.icon?.size ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+      return model.icon!.size ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
     // use [TimelineProperties.iconSize] timeline is not centered
-    return properties.iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+    return properties.iconSize;
   }
 
-  Icon get icon {
+  Icon? get icon {
     if (this is TimelineItemCenter) return model.icon;
-    if (model.icon == null) return null;
     // ignore icon size if timeline is not centered.
     return Icon(
-      model.icon.icon,
-      color: model.icon.color,
-      textDirection: model.icon.textDirection,
-      key: model.icon.key,
-      semanticLabel: model.icon.semanticLabel,
+      model.icon?.icon,
+      color: model.icon?.color,
+      textDirection: model.icon?.textDirection,
+      key: model.icon?.key,
+      semanticLabel: model.icon?.semanticLabel,
       size: TimelineBoxDecoration.DEFAULT_ICON_SIZE,
     );
   }
@@ -38,7 +37,7 @@ abstract class TimelineItem extends StatelessWidget {
 
 class TimelineItemCenter extends TimelineItem {
   // https://github.com/dart-lang/sdk/issues/29395
-  const TimelineItemCenter({Key key, model, properties, isFirst, isLast})
+  const TimelineItemCenter({Key? key, required model, required properties, isFirst, isLast})
       : super(model: model, properties: properties, key: key);
 
   AlignmentGeometry get position {
@@ -84,7 +83,7 @@ class TimelineItemCenter extends TimelineItem {
 }
 
 class TimelineItemLeft extends TimelineItem {
-  const TimelineItemLeft({Key key, model, properties, isFirst, isLast})
+  const TimelineItemLeft({Key? key, required model, required properties, isFirst, isLast})
       : super(model: model, properties: properties, key: key);
 
   @override
@@ -126,7 +125,7 @@ class TimelineItemLeft extends TimelineItem {
 }
 
 class TimelineItemRight extends TimelineItem {
-  const TimelineItemRight({Key key, model, properties, isFirst, isLast})
+  const TimelineItemRight({Key? key, required model, required properties, isFirst, isLast})
       : super(model: model, properties: properties, key: key);
 
   @override
