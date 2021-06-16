@@ -16,7 +16,7 @@ abstract class TimelineItem extends StatelessWidget {
     if (model.icon == null) return TimelineBoxDecoration.DEFAULT_DOT_SIZE;
     // use [TimelineModel.icon]'s size when timeline is centered
     if (this is TimelineItemCenter)
-      return model.icon!.size ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+      return model.icon?.size ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
     // use [TimelineProperties.iconSize] timeline is not centered
     return properties.iconSize;
   }
