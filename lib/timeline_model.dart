@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 enum TimelineItemPosition { left, right, random }
 
 class TimelineModel {
-  final Icon icon;
+  final Icon? icon;
   final Color iconBackground;
-  final Widget child;
+  final Widget? child;
   final TimelineItemPosition position;
   bool isFirst;
   bool isLast;
-  final Function onTap;
+  final Function? onTap;
 
   TimelineModel(this.child,
       {this.icon,
-        this.iconBackground,
+        this.iconBackground = Colors.grey,
         this.position = TimelineItemPosition.random,
         this.isFirst = false,
         this.isLast = false,
@@ -23,13 +23,13 @@ class TimelineModel {
   bool operator ==(o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final TimelineModel typedOther = o;
-    return icon == typedOther.icon &&
-        iconBackground == typedOther.iconBackground &&
-        child == typedOther.child &&
-        isFirst == typedOther.isFirst &&
-        isLast == typedOther.isLast &&
-        position == typedOther.position;
+    return o is TimelineModel &&
+        icon == o.icon &&
+        iconBackground == o.iconBackground &&
+        child == o.child &&
+        isFirst == o.isFirst &&
+        isLast == o.isLast &&
+        position == o.position;
   }
 
   @override
