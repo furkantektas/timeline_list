@@ -42,6 +42,7 @@ class Timeline extends StatelessWidget {
       Color? lineColor,
       double? lineWidth,
       double? iconSize,
+      double? gap,
       this.controller,
       this.position = TimelinePosition.Center,
       this.physics,
@@ -50,7 +51,7 @@ class Timeline extends StatelessWidget {
       this.reverse = false})
       : itemCount = children.length,
         properties = TimelineProperties(
-            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize),
+            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize, gap: gap),
         itemBuilder = ((BuildContext context, int i) => children[i]);
 
   /// Creates a scrollable timeline of widgets that are created on demand.
@@ -63,13 +64,14 @@ class Timeline extends StatelessWidget {
       Color? lineColor,
       double? lineWidth,
       double? iconSize,
+      double? gap,
       this.position = TimelinePosition.Center,
       this.physics,
       this.shrinkWrap = false,
       this.primary = false,
       this.reverse = false})
       : properties = TimelineProperties(
-            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize);
+            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize, gap: gap);
 
   @override
   Widget build(BuildContext context) {
