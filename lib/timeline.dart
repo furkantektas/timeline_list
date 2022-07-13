@@ -19,7 +19,7 @@ class TimelineProperties {
   const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize, double? gap})
       : lineColor = lineColor ?? const Color(0xFF333333),
         lineWidth = lineWidth ?? 2.5,
-        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE
+        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE,
         gap = gap ?? 0.0;
 }
 
