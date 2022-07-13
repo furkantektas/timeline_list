@@ -14,11 +14,13 @@ class TimelineProperties {
   final Color lineColor;
   final double lineWidth;
   final double iconSize;
+  final double gap;
 
-  const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize})
+  const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize, double? gap})
       : lineColor = lineColor ?? const Color(0xFF333333),
         lineWidth = lineWidth ?? 2.5,
-        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE
+        gap = gap ?? 0.0;
 }
 
 class Timeline extends StatelessWidget {
@@ -88,7 +90,7 @@ class Timeline extends StatelessWidget {
           return Material(
             child: InkWell(
               onTap: model.onTap as void Function()?,
-              child: child(properties, model),
+              child: Container(child: child(properties, model), margin: EdgeInsets.only(bottom: properties.gap)),
             ),
           );
         });
