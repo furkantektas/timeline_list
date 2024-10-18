@@ -93,7 +93,7 @@ class _TimelinePainterCenter extends _TimelinePainter {
         configuration.size?.center(Offset(0.0, offset.dy - iconSize / 2 - 2 * TimelineBoxDecoration.LINE_GAP));
     final Offset? bottomLineStart =
         configuration.size?.center(Offset(0.0, offset.dy + iconSize / 2 + 2 * TimelineBoxDecoration.LINE_GAP));
-    final Offset? offsetBottom = configuration.size?.bottomCenter(Offset(0.0, offset.dy * 2));
+    final Offset? offsetBottom = configuration.size?.bottomCenter(Offset(0.0, offset.dy * 2 + properties.gap));
     if (!isFirst && offsetTop != null && topLineEnd != null) canvas.drawLine(offsetTop, topLineEnd, linePaint);
     if (!isLast && bottomLineStart != null && offsetBottom != null)
       canvas.drawLine(bottomLineStart, offsetBottom, linePaint);
@@ -128,7 +128,7 @@ class _TimelinePainterLeft extends _TimelinePainter {
     final Offset? top = configuration.size?.topLeft(Offset(leftOffset.dx, 0.0));
     final Offset? centerTop = configuration.size?.centerLeft(Offset(leftOffset.dx, leftOffset.dy - iconMargin));
     final Offset? centerBottom = configuration.size?.centerLeft(Offset(leftOffset.dx, leftOffset.dy + iconMargin));
-    final Offset? end = configuration.size?.bottomLeft(Offset(leftOffset.dx, leftOffset.dy * 2));
+    final Offset? end = configuration.size?.bottomLeft(Offset(leftOffset.dx, leftOffset.dy * 2 + properties.gap));
     if (!isFirst && top != null && centerTop != null) canvas.drawLine(top, centerTop, linePaint);
     if (!isLast && centerBottom != null && end != null) canvas.drawLine(centerBottom, end, linePaint);
 
@@ -162,7 +162,7 @@ class _TimelinePainterRight extends _TimelinePainter {
     final Offset? top = configuration.size?.topRight(Offset(rightOffset.dx, 0.0));
     final Offset? centerTop = configuration.size?.centerRight(Offset(rightOffset.dx, rightOffset.dy - iconMargin));
     final Offset? centerBottom = configuration.size?.centerRight(Offset(rightOffset.dx, rightOffset.dy + iconMargin));
-    final Offset? end = configuration.size?.bottomRight(Offset(rightOffset.dx, rightOffset.dy * 2));
+    final Offset? end = configuration.size?.bottomRight(Offset(rightOffset.dx, rightOffset.dy * 2 + properties.gap));
     if (!isFirst && top != null && centerTop != null) canvas.drawLine(top, centerTop, linePaint);
     if (!isLast && centerBottom != null && end != null) canvas.drawLine(centerBottom, end, linePaint);
 

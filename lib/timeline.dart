@@ -14,11 +14,13 @@ class TimelineProperties {
   final Color lineColor;
   final double lineWidth;
   final double iconSize;
+  final double gap;
 
-  const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize})
+  const TimelineProperties({Color? lineColor, double? lineWidth, double? iconSize, double? gap})
       : lineColor = lineColor ?? const Color(0xFF333333),
         lineWidth = lineWidth ?? 2.5,
-        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE;
+        iconSize = iconSize ?? TimelineBoxDecoration.DEFAULT_ICON_SIZE,
+        gap = gap ?? 0.0;
 }
 
 class Timeline extends StatelessWidget {
@@ -40,6 +42,7 @@ class Timeline extends StatelessWidget {
       Color? lineColor,
       double? lineWidth,
       double? iconSize,
+      double? gap,
       this.controller,
       this.position = TimelinePosition.Center,
       this.physics,
@@ -48,7 +51,7 @@ class Timeline extends StatelessWidget {
       this.reverse = false})
       : itemCount = children.length,
         properties = TimelineProperties(
-            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize),
+            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize, gap: gap),
         itemBuilder = ((BuildContext context, int i) => children[i]);
 
   /// Creates a scrollable timeline of widgets that are created on demand.
@@ -61,13 +64,14 @@ class Timeline extends StatelessWidget {
       Color? lineColor,
       double? lineWidth,
       double? iconSize,
+      double? gap,
       this.position = TimelinePosition.Center,
       this.physics,
       this.shrinkWrap = false,
       this.primary = false,
       this.reverse = false})
       : properties = TimelineProperties(
-            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize);
+            lineColor: lineColor, lineWidth: lineWidth, iconSize: iconSize, gap: gap);
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +92,7 @@ class Timeline extends StatelessWidget {
           return Material(
             child: InkWell(
               onTap: model.onTap as void Function()?,
-              child: child(properties, model),
+              child: Container(child: child(properties, model), margin: EdgeInsets.only(bottom: properties.gap)),
             ),
           );
         });
