@@ -28,23 +28,17 @@ dependencies:
 
 ## Usage
 
-### Basic Timeline
+### Simple Timeline
 
 ```dart
 import 'package:timeline_list/timeline_list.dart';
 
-Timeline.builder(
-  context: context,
-  markerCount: 5,
-  properties: TimelineProperties(
-    iconAlignment: MarkerIconAlignment.center,
-    iconSize: 24,
-    timelinePosition: TimelinePosition.start
-  ),
-  markerBuilder: (context, index, position) => Marker(
-    child: Text("Step ${index + 1}"),
-    position: MarkerPosition.left,
-  ),
+Timeline(
+  children: [
+    Marker(child: Text("Step 1")),
+    Marker(child: Text("Step 2")),
+    Marker(child: Text("Step 3"))
+  ],
 )
 ```
 
