@@ -13,7 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: bluefireteam/flutter-gh-pages@v7
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+        cache: true
+    - name: Deploy to GitHub Pages
+      uses: bluefireteam/flutter-gh-pages@v7
       with:
         workingDir: example
         baseHref: /timeline_list/
