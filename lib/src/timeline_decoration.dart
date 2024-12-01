@@ -97,37 +97,29 @@ class _TimelineBoxPainter extends BoxPainter {
     }
   }
 
-  /// Draws the timeline line for center-positioned timelines.
   void drawLineOnCenter(
       Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final size = configuration.size!;
-    offset =
-        offset.translate(0, properties.iconSize / 2 - properties.markerGap);
-    if (!isFirst && !isLast) {
-      // Draw a straight line from top to bottom
-      canvas.drawLine(
-          size.topCenter(offset - Offset(0, properties.iconSize / 2)),
-          size.bottomCenter(offset + Offset(0, properties.iconSize / 2)),
-          linePaint);
-    } else {
-      // Stop drawing the line if it's the first or last item
-      final Offset iconOffset = switch (iconAlignment) {
-        MarkerIconAlignment.top => size.topCenter(offset),
-        MarkerIconAlignment.center => size.center(offset),
-        MarkerIconAlignment.bottom => size.bottomCenter(offset)
-      };
+    // horizontal center
+    Offset iconOffset = switch (iconAlignment) {
+      MarkerIconAlignment.top =>
+        size.topCenter(offset.translate(0, properties.iconSize / 2)),
+      MarkerIconAlignment.center => size.center(offset),
+      MarkerIconAlignment.bottom =>
+        size.bottomCenter(offset.translate(0, -properties.iconSize / 2))
+    };
+    Offset top = size.topCenter(offset -
+        Offset(0, -properties.iconSize / 2 + properties.markerGap / 2));
+    Offset end = size.bottomCenter(
+        offset + Offset(0, properties.iconSize / 2 + properties.markerGap / 2));
 
-      final Offset top = size.topCenter(offset);
-      final Offset end = size.bottomCenter(offset);
-
-      // Draw a line from top to icon
-      if (!isFirst) {
-        canvas.drawLine(top, iconOffset, linePaint);
-      }
-      // Draw a line from icon to end
-      if (!isLast) {
-        canvas.drawLine(iconOffset, end, linePaint);
-      }
+    // Draw a line from top to icon
+    if (!isFirst) {
+      canvas.drawLine(top, iconOffset, linePaint);
+    }
+    // Draw a line from icon to end
+    if (!isLast) {
+      canvas.drawLine(iconOffset, end, linePaint);
     }
   }
 
@@ -135,35 +127,27 @@ class _TimelineBoxPainter extends BoxPainter {
   void drawLineOnLeft(
       Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final size = configuration.size!;
-    offset = offset.translate(properties.iconSize / 2,
-        properties.iconSize / 2 - properties.markerGap / 2);
-    if (!isFirst && !isLast) {
-      // Draw a straight line from top to bottom
-      canvas.drawLine(
-          size.topLeft(offset - Offset(0, properties.iconSize / 2 + 8)),
-          size.bottomLeft(offset + Offset(0, properties.iconSize / 2 - 2)),
-          linePaint);
-    } else {
-      // Stop drawing the line if it's the first or last item
-      final Offset iconOffset = switch (iconAlignment) {
-        MarkerIconAlignment.top => size.topLeft(offset),
-        MarkerIconAlignment.center => size.centerLeft(offset),
-        MarkerIconAlignment.bottom => size.bottomLeft(offset)
-      };
+    // horizontal center
+    offset = offset.translate(properties.iconSize / 2, 0);
+    Offset iconOffset = switch (iconAlignment) {
+      MarkerIconAlignment.top =>
+        size.topLeft(offset.translate(0, properties.iconSize / 2)),
+      MarkerIconAlignment.center => size.centerLeft(offset),
+      MarkerIconAlignment.bottom =>
+        size.bottomLeft(offset.translate(0, -properties.iconSize / 2))
+    };
+    Offset top = size.topLeft(offset -
+        Offset(0, -properties.iconSize / 2 + properties.markerGap / 2));
+    Offset end = size.bottomLeft(
+        offset + Offset(0, properties.iconSize / 2 + properties.markerGap / 2));
 
-      final Offset top =
-          size.topLeft(offset - Offset(0, properties.iconSize / 2 + 2));
-      final Offset end =
-          size.bottomLeft(offset + Offset(0, properties.iconSize / 2 - 2));
-
-      // Draw a line from top to icon
-      if (!isFirst) {
-        canvas.drawLine(top, iconOffset, linePaint);
-      }
-      // Draw a line from icon to end
-      if (!isLast) {
-        canvas.drawLine(iconOffset, end, linePaint);
-      }
+    // Draw a line from top to icon
+    if (!isFirst) {
+      canvas.drawLine(top, iconOffset, linePaint);
+    }
+    // Draw a line from icon to end
+    if (!isLast) {
+      canvas.drawLine(iconOffset, end, linePaint);
     }
   }
 
@@ -171,33 +155,27 @@ class _TimelineBoxPainter extends BoxPainter {
   void drawLineOnRight(
       Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final size = configuration.size!;
-    offset = offset.translate(-properties.iconSize / 2,
-        -properties.iconSize / 2 + properties.markerGap);
-    if (!isFirst && !isLast) {
-      // Draw a straight line from top to bottom
-      canvas.drawLine(
-          size.topRight(offset - Offset(0, properties.iconSize / 2 - 3)),
-          size.bottomRight(offset + Offset(0, properties.iconSize / 2 + 3)),
-          linePaint);
-    } else {
-      // Stop drawing the line if it's the first or last item
-      final Offset iconOffset = switch (iconAlignment) {
-        MarkerIconAlignment.top => size.topRight(offset),
-        MarkerIconAlignment.center => size.centerRight(offset),
-        MarkerIconAlignment.bottom => size.bottomRight(offset)
-      };
+    // horizontal center
+    offset = offset.translate(-properties.iconSize / 2, 0);
+    Offset iconOffset = switch (iconAlignment) {
+      MarkerIconAlignment.top =>
+        size.topRight(offset.translate(0, properties.iconSize / 2)),
+      MarkerIconAlignment.center => size.centerRight(offset),
+      MarkerIconAlignment.bottom =>
+        size.bottomRight(offset.translate(0, -properties.iconSize / 2))
+    };
+    Offset top = size.topRight(offset -
+        Offset(0, -properties.iconSize / 2 + properties.markerGap / 2));
+    Offset end = size.bottomRight(
+        offset + Offset(0, properties.iconSize / 2 + properties.markerGap / 2));
 
-      final Offset top = size.topRight(offset - Offset(0, 2));
-      final Offset end = size.bottomRight(offset + Offset(0, 2));
-
-      // Draw a line from top to icon
-      if (!isFirst) {
-        canvas.drawLine(top, iconOffset, linePaint);
-      }
-      // Draw a line from icon to end
-      if (!isLast) {
-        canvas.drawLine(iconOffset, end, linePaint);
-      }
+    // Draw a line from top to icon
+    if (!isFirst) {
+      canvas.drawLine(top, iconOffset, linePaint);
+    }
+    // Draw a line from icon to end
+    if (!isLast) {
+      canvas.drawLine(iconOffset, end, linePaint);
     }
   }
 }

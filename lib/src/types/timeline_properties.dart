@@ -40,11 +40,11 @@ class TimelineProperties {
 
     /// The alignment of the icon relative to the timeline item (top, center,
     /// or bottom), by default the icon is aligned at the top.
-    this.iconAlignment = MarkerIconAlignment.top,
+    this.iconAlignment = MarkerIconAlignment.center,
 
-    /// The position of the timeline (left, center, or right), by default the
-    /// timeline is centered. Note that the timeline item position is
-    /// ignored when timelinePosition is left or right.
-    this.timelinePosition = TimelinePosition.center,
+    /// The position of the timeline (start(left), center, end(right)), by
+    /// default the timeline is left aligned. Note that the timeline item
+    /// position is ignored when timelinePosition is left or right.
+    this.timelinePosition = TimelinePosition.start,
   }) : this.iconSize = iconSize ?? 2 * lineWidth;
 }

@@ -5,9 +5,6 @@ class TimelineWidget extends StatelessWidget {
   /// The list of markers to display in the timeline.
   final List<Marker> items;
 
-  /// The position of the timeline (start, end, or center).
-  final TimelinePosition position;
-
   /// Properties that define the default visual appearance of the timeline.
   final TimelineProperties properties;
 
@@ -34,13 +31,12 @@ class TimelineWidget extends StatelessWidget {
 
   /// Creates a new [TimelineWidget].
   ///
-  /// The [items], [position], and [properties] parameters are required.
+  /// The [items] and [properties] parameters are required.
   /// Other parameters provide additional customization options for the timeline's
   /// appearance and behavior.
   const TimelineWidget({
     Key? key,
     required this.items,
-    required this.position,
     required this.properties,
     this.controller,
     this.physics,
@@ -62,9 +58,9 @@ class TimelineWidget extends StatelessWidget {
       child: MarkerWidget(
           data: marker.copyWith(
             iconAlignment: marker.iconAlignment ?? properties.iconAlignment,
-            position: position == TimelinePosition.start
+            position: properties.timelinePosition == TimelinePosition.start
                 ? MarkerPosition.left
-                : (position == TimelinePosition.end
+                : (properties.timelinePosition == TimelinePosition.end
                     ? MarkerPosition.right
                     : marker.position),
           ),
@@ -72,7 +68,7 @@ class TimelineWidget extends StatelessWidget {
           isFirst: isFirst,
           isLast: isLast),
     );
-    return switch (position) {
+    return switch (properties.timelinePosition) {
       TimelinePosition.start =>
         Align(alignment: Alignment.centerLeft, child: child),
       TimelinePosition.end =>

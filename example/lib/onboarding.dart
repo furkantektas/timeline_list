@@ -25,7 +25,7 @@ class OnboardingPage extends StatelessWidget {
                 iconAlignment: MarkerIconAlignment.center,
                 iconSize: 16,
                 timelinePosition: TimelinePosition.start),
-            markerBuilder: (context, index, position) => Marker(
+            markerBuilder: (context, index) => Marker(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("Step ${index + 1}"),
@@ -33,7 +33,6 @@ class OnboardingPage extends StatelessWidget {
               icon: index >= 8 ? emptyIcon : checkIcon,
               position: MarkerPosition.left,
             ),
-            position: TimelinePosition.center,
           ),
         ]));
   }

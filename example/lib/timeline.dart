@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:timeline_list/timeline_list.dart';
 import 'data.dart';
 
-class TimelinePage extends StatefulWidget {
+class FullyFeaturedTimelinePage extends StatefulWidget {
   @override
-  _TimelinePageState createState() => _TimelinePageState();
+  _FullyFeaturedTimelinePageState createState() =>
+      _FullyFeaturedTimelinePageState();
 }
 
-class _TimelinePageState extends State<TimelinePage> {
+class _FullyFeaturedTimelinePageState extends State<FullyFeaturedTimelinePage> {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
   int currentIndex = 1;
@@ -81,8 +82,7 @@ class _TimelinePageState extends State<TimelinePage> {
         context: context,
         markerBuilder: doodleBuilder,
         markerCount: doodles.length,
-        position: position,
-        maxWidth: 300,
+        maxWidth: 250,
         properties: TimelineProperties(
             lineWidth: 4,
             timelinePosition: position,
@@ -92,8 +92,7 @@ class _TimelinePageState extends State<TimelinePage> {
             iconAlignment: iconAlignment),
       );
 
-  Widget icon(
-      TimelinePosition timelinePosition, Color iconBackground, Icon icon) {
+  Widget icon(Color iconBackground, Icon icon) {
     return Container(
       height: iconSize,
       width: iconSize,
@@ -103,19 +102,25 @@ class _TimelinePageState extends State<TimelinePage> {
     );
   }
 
-  Widget networkImage(String url) => FadeInImage.assetNetwork(
-        placeholder: 'images/empty.png',
-        placeholderCacheHeight: 200,
+  Widget networkImage(String url) => Image.network(
+        url,
+        cacheHeight: 200,
         height: 200,
-        image: url,
         fit: BoxFit.contain,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(child: CircularProgressIndicator());
+        },
       );
 
-  Marker doodleBuilder(BuildContext context, int i, TimelinePosition position) {
+  Marker doodleBuilder(BuildContext context, int i) {
     final doodle = doodles[i];
     final textTheme = Theme.of(context).textTheme;
     return Marker(
-      icon: icon(position, doodle.iconBackground, doodle.icon),
+      icon: icon(doodle.iconBackground, doodle.icon),
+      // Marker position is ignored when the timeline is not centered
+      position: MarkerPosition.random,
       child: Card(
         color: Colors.white,
         margin: EdgeInsets.symmetric(vertical: 16.0),

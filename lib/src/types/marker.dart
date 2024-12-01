@@ -2,8 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import 'types.dart';
 
-typedef MarkerBuilder = Marker Function(
-    BuildContext context, int index, TimelinePosition position);
+typedef MarkerBuilder = Marker Function(BuildContext context, int index);
 
 /// A class that represents a marker item in a timeline.
 ///
@@ -18,7 +17,7 @@ class Marker {
   final Widget? icon;
 
   /// The position of the marker relative to the timeline.
-  /// Defaults to [MarkerPosition.random].
+  /// Defaults to [MarkerPosition.left].
   final MarkerPosition position;
 
   /// Callback function triggered when the marker is tapped.
@@ -42,7 +41,7 @@ class Marker {
     this.icon,
     this.onTap,
     this.iconAlignment,
-    this.position = MarkerPosition.random,
+    this.position = MarkerPosition.left,
     this.maxWidth = double.infinity,
   });
 

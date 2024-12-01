@@ -12,6 +12,7 @@ export 'src/types/types.dart';
 
 class Timeline extends StatelessWidget {
   final List<Marker> children;
+  final TimelinePosition position;
   final TimelineProperties properties;
 
   final ScrollController? controller;
@@ -24,6 +25,7 @@ class Timeline extends StatelessWidget {
   const Timeline({
     Key? key,
     required this.children,
+    this.position = TimelinePosition.center,
     this.properties = const TimelineProperties(),
     this.controller,
     this.physics,
@@ -51,6 +53,7 @@ class Timeline extends StatelessWidget {
     required BuildContext context,
     required int markerCount,
     required MarkerBuilder markerBuilder,
+    TimelinePosition position = TimelinePosition.center,
     TimelineProperties properties = const TimelineProperties(),
     ScrollController? controller,
     ScrollPhysics? physics,
