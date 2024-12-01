@@ -1,0 +1,19 @@
+name: Publish Web Demo
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: bluefireteam/flutter-gh-pages@v7
+        with:
+          workingDir: example
+          baseHref: /timeline_list/
