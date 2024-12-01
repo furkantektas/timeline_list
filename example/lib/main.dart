@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:timeline_list/timeline_list.dart';
 import 'timeline.dart';
 import 'onboarding.dart';
 
 void main() => runApp(MyApp());
+
+class SimpleTimeline extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Simple timeline")),
+        body: Timeline(
+          children: [
+            Marker(child: Text("Step 1")),
+            Marker(child: Text("Step 2")),
+            Marker(child: Text("Step 3"))
+          ],
+        ));
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,8 +29,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => ExampleDirectory(),
-        '/timeline': (context) => TimelinePage(),
+        '/fully-featured': (context) => FullyFeaturedTimelinePage(),
         '/onboarding': (context) => OnboardingPage(),
+        '/simple': (context) => SimpleTimeline(),
       },
     );
   }
@@ -28,10 +45,13 @@ class ExampleDirectory extends StatelessWidget {
       body: ListView(children: [
         ListTile(
             title: Text("Timeline with icons and different alignment options"),
-            onTap: () => Navigator.pushNamed(context, '/timeline')),
+            onTap: () => Navigator.pushNamed(context, '/fully-featured')),
         ListTile(
             title: Text("Onboarding example"),
             onTap: () => Navigator.pushNamed(context, '/onboarding')),
+        ListTile(
+            title: Text("Simple timeline"),
+            onTap: () => Navigator.pushNamed(context, '/simple'))
       ]),
     );
   }
