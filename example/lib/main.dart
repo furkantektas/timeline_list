@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_list/timeline_list.dart';
-import 'timeline.dart';
+import 'iphone_releases.dart';
 import 'onboarding.dart';
 
 void main() => runApp(MyApp());
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => ExampleDirectory(),
-        '/fully-featured': (context) => FullyFeaturedTimelinePage(),
+        '/iphone-releases': (context) => iPhoneReleaseTimelinePage(),
         '/onboarding': (context) => OnboardingPage(),
         '/simple': (context) => SimpleTimeline(),
       },
@@ -45,7 +45,7 @@ class ExampleDirectory extends StatelessWidget {
       body: ListView(children: [
         ListTile(
             title: Text("Timeline with icons and different alignment options"),
-            onTap: () => Navigator.pushNamed(context, '/fully-featured')),
+            onTap: () => Navigator.pushNamed(context, '/iphone-releases')),
         ListTile(
             title: Text("Onboarding example"),
             onTap: () => Navigator.pushNamed(context, '/onboarding')),
