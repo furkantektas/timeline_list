@@ -23,12 +23,7 @@ flutter:
 
 topics:
   - timeline
+  - onboarding
+  - progress
   - widgets
   - flutter
-  - ui
-  - mobile
-  - ios
-  - android
-  - onboarding
-  - web
-  - browser
