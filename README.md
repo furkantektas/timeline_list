@@ -102,7 +102,7 @@ Timeline.builder(
 
 - `child`: The main content widget of the marker
 - `icon`: Optional custom icon widget
-- `position`: Marker position for centered timelines (`left`, `right`, `random`)
+- `position`: Marker position for centered timelines (`left`, `right`)
 - `onTap`: Optional callback for marker tap events
 - `maxWidth`: Maximum width constraint for marker content
 

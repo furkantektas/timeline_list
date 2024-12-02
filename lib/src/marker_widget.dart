@@ -100,9 +100,9 @@ class MarkerWidget extends StatelessWidget {
       // align child opposite to it's position to make it look aligned around
       // the center line
       return Align(
-        alignment: data.position == MarkerPosition.left
-            ? Alignment.centerRight
-            : Alignment.centerLeft,
+        alignment: data.position.isLeft()
+            ? Alignment.centerLeft
+            : Alignment.centerRight,
         child: child,
       );
     }
