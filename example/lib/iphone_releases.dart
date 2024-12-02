@@ -267,7 +267,7 @@ class _iPhoneReleaseTimelinePageState extends State<iPhoneReleaseTimelinePage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(doodle.emoji,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 64)),
+                        style: TextStyle(fontSize: 48)),
                   ),
                 ),
               ),
