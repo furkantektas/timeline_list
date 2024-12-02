@@ -1,3 +1,10 @@
+## [0.1.1] - 2024-12-02
+
+### Improvements
+- Static analysis fixes
+- Introduce linter
+- Improve pub.dev score
+
 ## [0.1.0] - 2024-11-19
 
 ### Breaking Changes
