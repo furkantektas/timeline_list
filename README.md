@@ -1,5 +1,5 @@
 # Flutter Timeline Widget
-[![pub package](https://img.shields.io/pub/v/timeline_list.svg)](https://pub.dartlang.org/packages/timeline_list)
+[![pub package](https://img.shields.io/pub/v/timeline_list.svg)](https://pub.dartlang.org/packages/timeline_list) [![Flutter Timeline List Web Demo](https://img.shields.io/badge/Web_demo-blue?logo=googlechrome&logoColor=white&link=https%3A%2F%2Ffurkantektas.github.io%2Ftimeline_list%2F)](https://furkantektas.github.io/timeline_list/)
 
 A highly customizable Flutter widget for displaying vertical timelines with custom markers, icons, and flexible positioning options.
 
