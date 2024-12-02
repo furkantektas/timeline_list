@@ -35,7 +35,7 @@ class TimelineWidget extends StatelessWidget {
   /// Other parameters provide additional customization options for the timeline's
   /// appearance and behavior.
   const TimelineWidget({
-    Key? key,
+    super.key,
     required this.items,
     required this.properties,
     this.controller,
@@ -45,7 +45,7 @@ class TimelineWidget extends StatelessWidget {
     this.maxWidth = double.infinity,
     this.horizontalPadding = 16,
     this.iconAlignment = MarkerIconAlignment.top,
-  }) : super(key: key);
+  });
 
   /// Builds the content for a single marker in the timeline.
   ///

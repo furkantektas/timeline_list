@@ -31,7 +31,7 @@ class Marker {
   /// Defaults to [double.infinity].
   final double maxWidth;
 
-  /// Creates a new [Marker] instance, previosly known as [TimelineItem].
+  /// Creates a new [Marker] instance, previosly known as `TimelineItem`.
   ///
   /// The [child] parameter is required and represents the main content of the marker.
   /// Other parameters are optional and provide customization for the marker's

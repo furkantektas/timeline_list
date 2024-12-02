@@ -46,5 +46,5 @@ class TimelineProperties {
     /// default the timeline is left aligned. Note that the timeline item
     /// position is ignored when timelinePosition is left or right.
     this.timelinePosition = TimelinePosition.start,
-  }) : this.iconSize = iconSize ?? 2 * lineWidth;
+  }) : iconSize = iconSize ?? 2 * lineWidth;
 }

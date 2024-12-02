@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => ExampleDirectory(),
-        '/iphone-releases': (context) => iPhoneReleaseTimelinePage(),
+        '/iphone-releases': (context) => IPhoneReleaseTimelinePage(),
         '/onboarding': (context) => OnboardingPage(),
         '/simple': (context) => SimpleTimeline(),
       },
