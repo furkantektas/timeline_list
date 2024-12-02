@@ -1,4 +1,4 @@
-name: example
+name: timeline_list_example
 description: A showcase application demonstrating the timeline_list package's features, including vertical timelines with custom markers, icons, and various positioning options.
 publish_to: none
 version: 1.0.0+1
@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  cupertino_icons: ^1.0.2
 
   timeline_list:
     path: ../

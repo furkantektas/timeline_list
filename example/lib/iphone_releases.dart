@@ -5,12 +5,12 @@ class iPhoneRelease {
   final String modelName;
   final String releaseDate;
   final Color color;
-  final String emoji;
+  final IconData icon;
   const iPhoneRelease({
     required this.modelName,
     required this.releaseDate,
     required this.color,
-    required this.emoji,
+    required this.icon,
   });
 }
 
@@ -19,117 +19,117 @@ List<iPhoneRelease> doodles = [
       modelName: "iPhone",
       releaseDate: "29 June 2007",
       color: Colors.deepPurple,
-      emoji: "📱"),
+      icon: Icons.phone_iphone),
   iPhoneRelease(
       modelName: "iPhone 3G",
       releaseDate: "11 July 2008",
       color: Colors.cyan,
-      emoji: " 🚀"),
+      icon: Icons.piano),
   iPhoneRelease(
       modelName: "iPhone 3GS",
       releaseDate: "19 June 2009",
       color: Colors.lime,
-      emoji: "⚡"),
+      icon: Icons.sailing),
   iPhoneRelease(
       modelName: "iPhone 4",
       releaseDate: "24 June 2010",
       color: Colors.amber,
-      emoji: "💎"),
+      icon: Icons.diamond),
   iPhoneRelease(
       modelName: "iPhone 4S",
       releaseDate: "14 October 2011",
       color: Colors.deepOrange,
-      emoji: "🦋"),
+      icon: Icons.dashboard),
   iPhoneRelease(
       modelName: "iPhone 5",
       releaseDate: "21 September 2012",
       color: Colors.indigo,
-      emoji: "🌟"),
+      icon: Icons.star),
   iPhoneRelease(
       modelName: "iPhone 5S & 5C",
       releaseDate: "20 September 2013",
       color: Colors.teal,
-      emoji: "🎉"),
+      icon: Icons.cake),
   iPhoneRelease(
       modelName: "iPhone 6 & 6 Plus",
       releaseDate: "19 September 2014",
       color: Colors.pink,
-      emoji: "📏"),
+      icon: Icons.view_comfy),
   iPhoneRelease(
       modelName: "iPhone 6S & 6S Plus",
       releaseDate: "25 September 2015",
       color: Colors.deepPurple,
-      emoji: "🔥"),
+      icon: Icons.fireplace),
   iPhoneRelease(
       modelName: "iPhone SE",
       releaseDate: "31 March 2016",
       color: Colors.lightGreen,
-      emoji: "🧩"),
+      icon: Icons.badge),
   iPhoneRelease(
       modelName: "iPhone 7 and 7 Plus",
       releaseDate: "16 September 2016",
       color: Colors.amber,
-      emoji: "💧"),
+      icon: Icons.golf_course),
   iPhoneRelease(
       modelName: "iPhone 8 and 8 Plus",
       releaseDate: "22 September 2017",
       color: Colors.indigo,
-      emoji: "🔮"),
+      icon: Icons.alarm),
   iPhoneRelease(
       modelName: "iPhone X",
       releaseDate: "3 November 2017",
       color: Colors.cyan,
-      emoji: "🔟"),
+      icon: Icons.ten_k),
   iPhoneRelease(
       modelName: "iPhone XS / XS Max",
       releaseDate: "21 September 2018",
       color: Colors.deepOrange,
-      emoji: "🌠"),
+      icon: Icons.wb_sunny),
   iPhoneRelease(
       modelName: "iPhone XR",
       releaseDate: "26 October 2018",
       color: Colors.lime,
-      emoji: "🎨"),
+      icon: Icons.color_lens),
   iPhoneRelease(
       modelName: "iPhone 11",
       releaseDate: "20 September 2019",
       color: Colors.pink,
-      emoji: "📸"),
+      icon: Icons.photo_camera),
   iPhoneRelease(
       modelName: "iPhone SE 2",
       releaseDate: "24 April 2020",
       color: Colors.teal,
-      emoji: "🔄"),
+      icon: Icons.sync),
   iPhoneRelease(
       modelName: "iPhone 12",
       releaseDate: "23 October 2020",
       color: Colors.deepPurple,
-      emoji: "🧲"),
+      icon: Icons.gpp_good),
   iPhoneRelease(
       modelName: "iPhone 13",
       releaseDate: "24 September 2021",
       color: Colors.amber,
-      emoji: "🔋"),
+      icon: Icons.battery_full),
   iPhoneRelease(
       modelName: "iPhone SE 3",
       releaseDate: "18 March 2022",
       color: Colors.lightGreen,
-      emoji: "🔍"),
+      icon: Icons.search),
   iPhoneRelease(
       modelName: "iPhone 14",
       releaseDate: "16 September 2022",
       color: Colors.indigo,
-      emoji: "🛰️"),
+      icon: Icons.space_bar),
   iPhoneRelease(
       modelName: "iPhone 15",
       releaseDate: "22 September 2023",
       color: Colors.cyan,
-      emoji: "🌊"),
+      icon: Icons.waves),
   iPhoneRelease(
       modelName: "iPhone 16",
       releaseDate: "20 September 2024",
       color: Colors.deepOrange,
-      emoji: "🚁")
+      icon: Icons.rocket)
 ];
 
 class iPhoneReleaseTimelinePage extends StatefulWidget {
@@ -223,27 +223,24 @@ class _iPhoneReleaseTimelinePageState extends State<iPhoneReleaseTimelinePage> {
             iconAlignment: iconAlignment),
       );
 
-  Widget icon(Color iconBackground, String emoji) {
+  Widget icon(Color iconBackground, IconData icon) {
     return Container(
-      height: iconSize,
-      width: iconSize,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-          border: Border.all(width: 3, color: iconBackground)),
-      child: Center(
-          child: Text(emoji,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: iconSize / 2.5))),
-    );
+        height: iconSize,
+        width: iconSize,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+            border: Border.all(width: 3, color: iconBackground)),
+        child: Center(
+            child: Icon(icon, color: iconBackground, size: iconSize / 5 * 3)));
   }
 
   Marker doodleBuilder(BuildContext context, int i) {
     final doodle = doodles[i];
     final textTheme = Theme.of(context).textTheme;
     return Marker(
-      icon: icon(doodle.color, doodle.emoji),
+      icon: icon(doodle.color, doodle.icon),
       // Marker position is ignored when the timeline is not centered
       position: i % 2 == 0 ? MarkerPosition.left : MarkerPosition.right,
       child: Card(
@@ -265,9 +262,8 @@ class _iPhoneReleaseTimelinePageState extends State<iPhoneReleaseTimelinePage> {
                   alignment: Alignment.bottomRight,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text(doodle.emoji,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 48)),
+                    child: Icon(doodle.icon,
+                        color: Colors.white, size: 2 * iconSize),
                   ),
                 ),
               ),
