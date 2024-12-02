@@ -1,8 +1,11 @@
 name: timeline_list
-description: A Flutter widget for creating beautiful vertical timelines with customizable markers, icons, and flexible positioning. Perfect for onboarding flows, progress tracking, and history displays.
+description: >-
+  A Flutter widget for creating beautiful vertical timelines with customizable
+  markers, icons, and flexible positioning. Perfect for onboarding flows,
+  progress tracking, and history displays.
 version: 0.1.0
 homepage: https://github.com/furkantektas/timeline_list
-
+repository: https://github.com/furkantektas/timeline_list
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -17,3 +20,25 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+
+screenshots:
+  - description: "Timeline with icons and different alignment options"
+    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-grid.png
+
+  - description: "Onboarding example"
+    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-onboarding.png
+
+  - description: "Simple timeline"
+    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-simple.png
+
+topics:
+  - timeline
+  - widgets
+  - flutter
+  - ui
+  - mobile
+  - ios
+  - android
+  - onboarding
+  - web
+  - browser

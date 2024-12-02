@@ -1,12 +1,12 @@
 # Flutter Timeline Widget
 [![pub package](https://img.shields.io/pub/v/timeline_list.svg)](https://pub.dartlang.org/packages/timeline_list)
-[![Build Status](https://travis-ci.org/furkantektas/timeline_list.svg?branch=master)](https://travis-ci.org/furkantektas/timeline_list)  [![codecov](https://codecov.io/gh/furkantektas/timeline_list/branch/master/graph/badge.svg?token=jDCYhfSuea)](https://codecov.io/gh/furkantektas/timeline_list)
 
 A highly customizable Flutter widget for displaying vertical timelines with custom markers, icons, and flexible positioning options.
 
-![Flutter Timeline List Screenshot](https://github.com/furkantektas/timeline_list/raw/master/doc/timeline_list.png?raw=true)
+![Flutter Timeline List Screenshot](./doc/timeline-grid.png)
 
-> 🦚 Most of the documentation was created using LLMs. If you notice any errors or typos, please submit a Pull Request or create an issue.
+> [!WARNING]
+> 🦚 The documentation was created using LLMs. If you notice any errors or typos, please submit a Pull Request or create an issue.
 
 ## Features
 
@@ -30,6 +30,8 @@ dependencies:
 
 ### Simple Timeline
 
+![Flutter Simple Timeline List Screenshot](doc/timeline-simple.png)
+
 ```dart
 import 'package:timeline_list/timeline_list.dart';
 
@@ -46,44 +48,38 @@ Timeline(
 
 Here's a more advanced example showing an onboarding timeline with custom icons:
 
+![Flutter Onboarding Timeline List Screenshot](doc/timeline-onboarding.png)
+
 ```dart
 var checkIcon = Container(
-  width: 16,
-  height: 16,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    color: Colors.green
-  ),
-  child: Icon(Icons.check, color: Colors.white, size: 12)
-);
-
+    width: 16,
+    height: 16,
+    decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
+    child: Icon(Icons.check, color: Colors.white, size: 12));
 var emptyIcon = Container(
-  width: 16,
-  height: 16,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    color: Colors.grey
-  )
-);
-
-Timeline.builder(
-  context: context,
-  markerCount: 10,
-  properties: TimelineProperties(
-    iconAlignment: MarkerIconAlignment.center,
-    iconSize: 16,
-    timelinePosition: TimelinePosition.start
-  ),
-  markerBuilder: (context, index, position) => Marker(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Text("Step ${index + 1}"),
-    ),
-    icon: index >= 8 ? emptyIcon : checkIcon,
-    position: MarkerPosition.left,
-  ),
-  position: TimelinePosition.center,
-)
+    width: 16,
+    height: 16,
+    decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey));
+return Scaffold(
+    appBar: AppBar(title: const Text("Onboarding example")),
+    body: Column(children: [
+      Timeline.builder(
+        context: context,
+        markerCount: 10,
+        properties: TimelineProperties(
+            iconAlignment: MarkerIconAlignment.center,
+            iconSize: 16,
+            timelinePosition: TimelinePosition.start),
+        markerBuilder: (context, index) => Marker(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Step ${index + 1}"),
+          ),
+          icon: index >= 8 ? emptyIcon : checkIcon,
+          position: MarkerPosition.left,
+        ),
+      ),
+    ]));
 ```
 
 ## Customization
@@ -116,4 +112,18 @@ Check out the [`example/`](https://github.com/furkantektas/timeline_list/tree/ma
 
 This repo is looking for maintainers. Contributions are welcome! Please feel free to submit a Pull Request.
 
-![ehlibyte games](https://ehlibyte.com/images/ehlibyte-logo-small.png?raw=true)
+[Thank you for all the contributors!](https://github.com/furkantektas/timeline_list/graphs/contributors)
+
+- [@samramez](https://github.com/samramez)
+- [@stijn1989](https://github.com/stijn1989)
+- [@JJCLane](https://github.com/JJCLane)
+- [@mjhansen3](https://github.com/mjhansen3)
+
+---
+
+Sponsored by:
+<div style="text-align: center; background-color: #fff; padding: 20px">
+<a href="https://ehlibyte.com" target="_blank">
+    <img src="https://ehlibyte.com/images/ehlibyte-logo.svg?raw=true" alt="ehlibyte games" width="80" height="80" style="margin: 0 auto; display: block;">
+</a>
+</div>
