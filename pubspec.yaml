@@ -21,16 +21,6 @@ dev_dependencies:
 
 flutter:
 
-screenshots:
-  - description: "Timeline with icons and different alignment options"
-    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-grid.png
-
-  - description: "Onboarding example"
-    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-onboarding.png
-
-  - description: "Simple timeline"
-    path: https://raw.githubusercontent.com/furkantektas/timeline_list/master/doc/timeline-simple.png
-
 topics:
   - timeline
   - widgets
