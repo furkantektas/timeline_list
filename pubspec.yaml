@@ -2,7 +2,7 @@ name: timeline_list
 description: >-
   Flutter widget for creating highly customizable timelines. Perfect for
   onboarding flows, progress tracking, and interactive history displays.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/furkantektas/timeline_list
 repository: https://github.com/furkantektas/timeline_list
 
