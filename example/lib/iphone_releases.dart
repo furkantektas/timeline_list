@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_list/timeline_list.dart';
 
-class iPhoneRelease {
+class IPhoneRelease {
   final String modelName;
   final String releaseDate;
   final Color color;
   final IconData icon;
-  const iPhoneRelease({
+  const IPhoneRelease({
     required this.modelName,
     required this.releaseDate,
     required this.color,
@@ -14,131 +14,131 @@ class iPhoneRelease {
   });
 }
 
-List<iPhoneRelease> doodles = [
-  iPhoneRelease(
+List<IPhoneRelease> doodles = [
+  IPhoneRelease(
       modelName: "iPhone",
       releaseDate: "29 June 2007",
       color: Colors.deepPurple,
       icon: Icons.phone_iphone),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 3G",
       releaseDate: "11 July 2008",
       color: Colors.cyan,
       icon: Icons.piano),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 3GS",
       releaseDate: "19 June 2009",
       color: Colors.lime,
       icon: Icons.sailing),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 4",
       releaseDate: "24 June 2010",
       color: Colors.amber,
       icon: Icons.diamond),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 4S",
       releaseDate: "14 October 2011",
       color: Colors.deepOrange,
       icon: Icons.dashboard),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 5",
       releaseDate: "21 September 2012",
       color: Colors.indigo,
       icon: Icons.star),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 5S & 5C",
       releaseDate: "20 September 2013",
       color: Colors.teal,
       icon: Icons.cake),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 6 & 6 Plus",
       releaseDate: "19 September 2014",
       color: Colors.pink,
       icon: Icons.view_comfy),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 6S & 6S Plus",
       releaseDate: "25 September 2015",
       color: Colors.deepPurple,
       icon: Icons.fireplace),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone SE",
       releaseDate: "31 March 2016",
       color: Colors.lightGreen,
       icon: Icons.badge),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 7 and 7 Plus",
       releaseDate: "16 September 2016",
       color: Colors.amber,
       icon: Icons.golf_course),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 8 and 8 Plus",
       releaseDate: "22 September 2017",
       color: Colors.indigo,
       icon: Icons.alarm),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone X",
       releaseDate: "3 November 2017",
       color: Colors.cyan,
       icon: Icons.ten_k),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone XS / XS Max",
       releaseDate: "21 September 2018",
       color: Colors.deepOrange,
       icon: Icons.wb_sunny),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone XR",
       releaseDate: "26 October 2018",
       color: Colors.lime,
       icon: Icons.color_lens),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 11",
       releaseDate: "20 September 2019",
       color: Colors.pink,
       icon: Icons.photo_camera),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone SE 2",
       releaseDate: "24 April 2020",
       color: Colors.teal,
       icon: Icons.sync),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 12",
       releaseDate: "23 October 2020",
       color: Colors.deepPurple,
       icon: Icons.gpp_good),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 13",
       releaseDate: "24 September 2021",
       color: Colors.amber,
       icon: Icons.battery_full),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone SE 3",
       releaseDate: "18 March 2022",
       color: Colors.lightGreen,
       icon: Icons.search),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 14",
       releaseDate: "16 September 2022",
       color: Colors.indigo,
       icon: Icons.space_bar),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 15",
       releaseDate: "22 September 2023",
       color: Colors.cyan,
       icon: Icons.waves),
-  iPhoneRelease(
+  IPhoneRelease(
       modelName: "iPhone 16",
       releaseDate: "20 September 2024",
       color: Colors.deepOrange,
       icon: Icons.rocket)
 ];
 
-class iPhoneReleaseTimelinePage extends StatefulWidget {
+class IPhoneReleaseTimelinePage extends StatefulWidget {
   @override
-  _iPhoneReleaseTimelinePageState createState() =>
-      _iPhoneReleaseTimelinePageState();
+  State<IPhoneReleaseTimelinePage> createState() =>
+      _IPhoneReleaseTimelinePageState();
 }
 
-class _iPhoneReleaseTimelinePageState extends State<iPhoneReleaseTimelinePage> {
+class _IPhoneReleaseTimelinePageState extends State<IPhoneReleaseTimelinePage> {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
   int currentIndex = 1;

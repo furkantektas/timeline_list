@@ -19,12 +19,11 @@ class MarkerWidget extends StatelessWidget {
   /// Requires [data] containing the marker's content and configuration,
   /// position indicators [isFirst] and [isLast], and timeline [properties].
   MarkerWidget(
-      {Key? key,
+      {super.key,
       required this.data,
       required this.isFirst,
       required this.isLast,
-      required this.properties})
-      : super(key: key);
+      required this.properties});
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(

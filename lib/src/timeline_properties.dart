@@ -46,5 +46,5 @@ class TimelineProperties {
     /// timeline is centered. Note that the timeline item position is
     /// ignored when timelinePosition is left or right.
     this.timelinePosition = TimelinePosition.center,
-  }) : this.iconSize = iconSize ?? 2 * lineWidth;
+  }) : iconSize = iconSize ?? 2 * lineWidth;
 }

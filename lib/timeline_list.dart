@@ -1,4 +1,4 @@
-library timeline;
+library;
 
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class Timeline extends StatelessWidget {
   final double horizontalPadding;
 
   const Timeline({
-    Key? key,
+    super.key,
     required this.children,
     this.properties = const TimelineProperties(),
     this.controller,
@@ -31,7 +31,7 @@ class Timeline extends StatelessWidget {
     this.reverse = false,
     this.maxWidth = double.infinity,
     this.horizontalPadding = 16,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
